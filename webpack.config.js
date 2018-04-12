@@ -40,6 +40,13 @@ let commonPlugins = [
     template: './src/index.template',
     inject: 'body'
   }),
+  
+  // https://stackoverflow.com/questions/45660672/webpack-fails-to-load-bootstrap-v4-0-0-beta
+  new Webpack.ProvidePlugin({ // inject ES5 modules as global vars
+    $: 'jquery',
+    jQuery: 'jquery', 'window.jQuery': 'jquery',
+    Popper: ['popper.js', 'default']
+  }),
 ]
 
 module.exports = {
