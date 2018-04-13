@@ -100,16 +100,16 @@ module.exports = {
       // Load images
       {
         test: /\.(png|svg|jpg|gif)(\?.*$|$)/,
-        loader: 'url-loader?limit=10000&mimetype=application/font-woff',
+        loader: 'url-loader?limit=10000',
       },
       // Load fonts
       {
         test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?(\?.*$|$)/,
-        use: 'url-loader?limit=10000',
+        use: 'url-loader?&limit=10000&name=fonts/[name].[ext]',
       },
       {
         test: /\.(eot|ttf|otf)$/,
-        loader: 'file-loader',
+        loader: 'file-loader?&limit=10000&name=fonts/[name].[ext]',
       },
     ],
   },
