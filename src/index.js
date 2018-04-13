@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
 
 import './app.css';
+import './app.scss';
 
 import App from './app.js'
 
