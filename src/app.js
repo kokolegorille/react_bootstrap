@@ -8,6 +8,7 @@ const App = () => (
     <NavBar />
     <div className='container'>
       <h1>Hello from React!?</h1>
+      <i className='fa fa-bars'></i>
     </div>
   </div>
 );

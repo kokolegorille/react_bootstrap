@@ -44,7 +44,7 @@ let commonPlugins = [
   // https://stackoverflow.com/questions/45660672/webpack-fails-to-load-bootstrap-v4-0-0-beta
   new Webpack.ProvidePlugin({ // inject ES5 modules as global vars
     $: 'jquery',
-    jQuery: 'jquery', 'window.jQuery': 'jquery',
+    jQuery: 'jquery',
     Popper: ['popper.js', 'default']
   }),
 ]
@@ -99,12 +99,16 @@ module.exports = {
       },
       // Load images
       {
-        test: /\.(png|svg|jpg|gif)$/,
-        loader: 'file-loader',
+        test: /\.(png|svg|jpg|gif)(\?.*$|$)/,
+        loader: 'url-loader?limit=10000&mimetype=application/font-woff',
       },
       // Load fonts
       {
-        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?(\?.*$|$)/,
+        use: 'url-loader?limit=10000',
+      },
+      {
+        test: /\.(eot|ttf|otf)$/,
         loader: 'file-loader',
       },
     ],
